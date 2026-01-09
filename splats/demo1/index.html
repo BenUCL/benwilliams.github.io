@@ -24,19 +24,29 @@
  <main class="demo-content">
   <div class="container">
    
-   <!-- Demo Viewer -->
+   <!-- Demo Viewer Options -->
    <div class="demo-viewer">
-    <img src="../../assets/demo1_poster.jpg" alt="Reef Patch Demo poster - Interactive 3D reconstruction">
     
+    <!-- Option A: Button to open in new tab -->
     <div class="demo-actions">
-     <a href="https://example.com/interactive" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+     <a href="https://superspl.at/s?id=392787d3" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
       Open interactive demo ▶
      </a>
-     
      <p class="mobile-fallback">
       Struggling to view on mobile? <a href="https://example.com/video" target="_blank" rel="noopener noreferrer">Watch the video instead</a>.
      </p>
     </div>
+
+    <!-- Option B: Embedded viewer (loads on this page only, not homepage) -->
+    <div class="iframe-wrapper">
+     <iframe 
+      src="https://superspl.at/s?id=392787d3" 
+      allow="fullscreen; xr-spatial-tracking" 
+      loading="lazy"
+      title="Reef Patch 3D Interactive Viewer">
+     </iframe>
+    </div>
+
    </div>
 
    <!-- Demo Description -->
@@ -47,8 +57,8 @@
      The reconstruction allows you to explore the reef structure from any angle, providing a detailed view of the coral formations and marine environment.
     </p>
     <p>
-     Click the button above to launch the interactive viewer. Note that the 3D viewer works best on desktop computers with a modern browser. 
-     Mobile users can watch a video walkthrough instead.
+     Use the embedded viewer above, or click the button to open in a new tab for the best experience. 
+     The 3D viewer works best on desktop computers with a modern browser. Mobile users may prefer the video walkthrough.
     </p>
     
     <div style="margin-top: 3rem; text-align: center;">
