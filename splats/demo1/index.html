@@ -3,79 +3,123 @@
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="description" content="Reef Patch Demo - Interactive 3D Gaussian splatting reconstruction by Ben Williams">
+ <meta name="description" content="Reef Patch Demo - Interactive 3D Gaussian splatting reconstruction by Ben Williams. A 20x30m area of a coral reef in Indonesia restored by Mars.">
  <title>Reef Patch Demo | Ben Williams</title>
  <link rel="stylesheet" href="../../styles.css">
+ <style>
+  /* Fullscreen viewer layout */
+  body {
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   height: 100vh;
+  }
+  
+  .fullscreen-viewer {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+  }
+  
+  .fullscreen-viewer iframe {
+   width: 100%;
+   height: 100%;
+   border: none;
+  }
+  
+  /* Floating controls */
+  .viewer-controls {
+   position: fixed;
+   bottom: 1rem;
+   left: 1rem;
+   display: flex;
+   gap: 0.5rem;
+   z-index: 10;
+  }
+  
+  .control-btn {
+   width: 36px;
+   height: 36px;
+   border-radius: 50%;
+   background: rgba(0, 0, 0, 0.5);
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   text-decoration: none;
+   font-size: 16px;
+   transition: background 0.2s ease;
+   position: relative;
+  }
+  
+  .control-btn:hover {
+   background: rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Info tooltip */
+  .info-tooltip {
+   position: absolute;
+   bottom: 45px;
+   left: 0;
+   background: rgba(0, 0, 0, 0.85);
+   color: white;
+   padding: 0.75rem;
+   border-radius: 6px;
+   font-size: 11px;
+   line-height: 1.4;
+   width: 280px;
+   opacity: 0;
+   pointer-events: none;
+   transition: opacity 0.2s ease;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .control-btn:hover .info-tooltip {
+   opacity: 1;
+  }
+  
+  @media (max-width: 640px) {
+   .info-tooltip {
+    width: 220px;
+    font-size: 10px;
+   }
+  }
+ </style>
 </head>
 <body>
  
- <!-- Demo Page Header -->
- <header class="demo-page-header">
-  <div class="container">
-   <div class="breadcrumb">
-    <a href="../../">Home</a> / <a href="../">Demos</a> / Reef Patch Demo
+ <!-- Fullscreen Viewer -->
+ <div class="fullscreen-viewer">
+  <iframe 
+   src="https://superspl.at/s?id=392787d3" 
+   allow="fullscreen; xr-spatial-tracking" 
+   loading="eager"
+   title="Reef Patch 3D Interactive Viewer - Indonesia Coral Restoration">
+  </iframe>
+ </div>
+
+ <!-- Floating Controls -->
+ <div class="viewer-controls">
+  <!-- Back button -->
+  <a href="../../" class="control-btn" title="Back to home">
+   ←
+  </a>
+  
+  <!-- Info button -->
+  <div class="control-btn">
+   ⓘ
+   <div class="info-tooltip">
+    View on laptop/desktop for best experience. Click and hold left mouse button to rotate, right mouse button to pan, scroll to zoom.<br><br>
+    A 20x30m area of a coral reef in Indonesia restored by Mars (buildingcoral.com), approximately 3 years post restoration.<br><br>
+    Data courtesy of J.Stratford, B.Williams, A. Dwiyanto, the Mars Coral Restoration Project Monitoring Team, T.B.Razak, and T.A.C.Lamont.
    </div>
   </div>
- </header>
-
- <!-- Demo Content -->
- <main class="demo-content">
-  <div class="container">
-   
-   <!-- Demo Viewer Options -->
-   <div class="demo-viewer">
-    
-    <!-- Option A: Button to open in new tab -->
-    <div class="demo-actions">
-     <a href="https://superspl.at/s?id=392787d3" class="btn btn-primary btn-large" target="_blank" rel="noopener noreferrer">
-      Open interactive demo ▶
-     </a>
-    </div>
-
-    <!-- Option B: Embedded viewer (loads on this page only, not homepage) -->
-    <div class="iframe-wrapper">
-     <iframe 
-      src="https://superspl.at/s?id=392787d3" 
-      allow="fullscreen; xr-spatial-tracking" 
-      loading="lazy"
-      title="Reef Patch 3D Interactive Viewer">
-     </iframe>
-    </div>
-
-    <!-- Mobile fallback centred below viewer -->
-    <p class="mobile-fallback" style="text-align: center; padding: 1rem;">
-     Struggling on mobile? <a href="https://example.com/video" target="_blank" rel="noopener noreferrer">Watch the video instead</a>.
-    </p>
-
-   </div>
-
-   <!-- Demo Description -->
-   <div class="demo-description">
-    <h2>About this reconstruction</h2>
-    <p>
-     This interactive 3D model shows a coral reef patch captured using photogrammetry and processed with Gaussian splatting technology. 
-     The reconstruction allows you to explore the reef structure from any angle, providing a detailed view of the coral formations and marine environment.
-    </p>
-    <p>
-     Use the embedded viewer above, or click the button to open in a new tab for the best experience. 
-     The 3D viewer works best on desktop computers with a modern browser. Mobile users may prefer the video walkthrough.
-    </p>
-    
-    <div style="margin-top: 3rem; text-align: center;">
-     <a href="../" class="btn btn-secondary">← Back to all demos</a>
-     <a href="../../" class="btn btn-secondary">← Back to home</a>
-    </div>
-   </div>
-
-  </div>
- </main>
-
- <!-- Footer -->
- <footer>
-  <div class="container">
-   <p>&copy; 2026 Ben Williams. All rights reserved.</p>
-  </div>
- </footer>
+ </div>
 
 </body>
 </html>
