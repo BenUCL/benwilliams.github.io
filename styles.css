@@ -497,6 +497,42 @@ main {
  border-radius: 8px;
 }
 
+/* Video Thumbnail Link (clickable YouTube thumbnail) */
+.video-thumbnail-link {
+ display: block;
+ text-decoration: none;
+ margin-top: auto;
+}
+
+.video-thumbnail {
+ position: relative;
+ border-radius: 8px;
+ overflow: hidden;
+ background: #000;
+}
+
+.video-thumbnail img {
+ width: 100%;
+ display: block;
+ transition: opacity 0.2s ease;
+}
+
+.video-thumbnail:hover img {
+ opacity: 0.85;
+}
+
+.video-play-btn {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ transition: transform 0.2s ease;
+}
+
+.video-thumbnail:hover .video-play-btn {
+ transform: translate(-50%, -50%) scale(1.1);
+}
+
 /* Footer */
 footer {
  background: #1a1a1a;
