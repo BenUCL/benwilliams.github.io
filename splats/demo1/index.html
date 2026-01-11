@@ -41,8 +41,8 @@
   }
   
   .control-btn {
-   width: 36px;
-   height: 36px;
+   width: 72px;
+   height: 72px;
    border-radius: 50%;
    background: rgba(0, 0, 0, 0.5);
    border: 1px solid rgba(255, 255, 255, 0.2);
@@ -52,7 +52,7 @@
    justify-content: center;
    cursor: pointer;
    text-decoration: none;
-   font-size: 16px;
+   font-size: 32px;
    transition: background 0.2s ease;
    position: relative;
   }
@@ -64,15 +64,15 @@
   /* Info tooltip */
   .info-tooltip {
    position: absolute;
-   bottom: 45px;
+   bottom: 85px;
    left: 0;
    background: rgba(0, 0, 0, 0.85);
    color: white;
-   padding: 0.75rem;
+   padding: 2.25rem;
    border-radius: 6px;
-   font-size: 11px;
-   line-height: 1.4;
-   width: 280px;
+   font-size: 33px;
+   line-height: 1.6;
+   width: 840px;
    opacity: 0;
    pointer-events: none;
    transition: opacity 0.2s ease;
@@ -85,18 +85,80 @@
   
   @media (max-width: 640px) {
    .info-tooltip {
-    width: 220px;
-    font-size: 10px;
+    width: 660px;
+    font-size: 28px;
    }
+  }
+  
+  /* Intro overlay with control instructions */
+  .intro-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.6);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 100;
+   animation: fadeInOut 6s ease-in-out forwards;
+   pointer-events: none;
+  }
+  
+  @keyframes fadeInOut {
+   0% {
+    opacity: 1;
+   }
+   80% {
+    opacity: 1;
+   }
+   100% {
+    opacity: 0;
+   }
+  }
+  
+  .intro-content {
+   background: rgba(0, 0, 0, 0.85);
+   color: white;
+   padding: 3rem 4rem;
+   border-radius: 12px;
+   text-align: center;
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   max-width: 600px;
+   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+   line-height: 1.8;
+  }
+  
+  .intro-content p {
+   font-size: 1.25rem;
+   margin: 0.75rem 0;
+   letter-spacing: 0.3px;
+  }
+  
+  .intro-content .mobile-note {
+   font-size: 1rem;
+   margin-top: 1.5rem;
+   color: rgba(255, 255, 255, 0.85);
   }
  </style>
 </head>
 <body>
  
+ <!-- Intro Overlay with Controls -->
+ <div class="intro-overlay">
+  <div class="intro-content">
+   <p>• Hold mouse buttons to move</p>
+   <p>• Scroll to zoom</p>
+   <p>• Double click to pick focal point</p>
+   <div class="mobile-note">Note: mobile devices may struggle to load the demo</div>
+  </div>
+ </div>
+ 
  <!-- Fullscreen Viewer -->
  <div class="fullscreen-viewer">
   <iframe 
-   src="https://superspl.at/s?id=392787d3" 
+   src="https://superspl.at/s?id=392787d3&autoplay=false" 
    allow="fullscreen; xr-spatial-tracking" 
    loading="eager"
    title="Reef Patch 3D Interactive Viewer - Indonesia Coral Restoration">
@@ -105,17 +167,20 @@
 
  <!-- Floating Controls -->
  <div class="viewer-controls">
-  <!-- Back button -->
+  <!-- Home button -->
   <a href="../../" class="control-btn" title="Back to home">
-   ←
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+   </svg>
   </a>
   
   <!-- Info button -->
   <div class="control-btn">
    ⓘ
    <div class="info-tooltip">
-    View on laptop/desktop for best experience. Click and hold left mouse button to rotate, right mouse button to pan, scroll to zoom.<br><br>
-    A 20x30m area of a coral reef in Indonesia restored by Mars (buildingcoral.com), approximately 3 years post restoration.<br><br>
+    Click and hold left mouse button to rotate, right mouse button to pan, scroll to zoom, double click to select focal point.<br><br>
+    This demo shows a precise spatial twin of a 20x30m area of coral reef in Indonesia restored by Mars (buildingcoral.com). The reef is approximately 3 years post restoration. This twin provides a tangible digital asset to evidence and explore the restoration progress.<br><br>
     Data courtesy of J.Stratford, B.Williams, A. Dwiyanto, the Mars Coral Restoration Project Monitoring Team, T.B.Razak, and T.A.C.Lamont.
    </div>
   </div>
