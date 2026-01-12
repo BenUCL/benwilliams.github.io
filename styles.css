@@ -404,6 +404,29 @@ img {
  height: 24px;
 }
 
+.play-triangle {
+ width: 0;
+ height: 0;
+ border-left: 14px solid rgba(255, 255, 255, 0.8);
+ border-top: 8px solid transparent;
+ border-bottom: 8px solid transparent;
+ margin-left: 3px;
+}
+
+.pause-bars {
+ display: inline-flex;
+ gap: 4px;
+}
+
+.pause-bars::before,
+.pause-bars::after {
+ content: '';
+ width: 3px;
+ height: 16px;
+ background: rgba(255, 255, 255, 0.8);
+ border-radius: 1px;
+}
+
 @keyframes bounce {
  0%, 20%, 50%, 80%, 100% {
   transform: translateX(-50%) translateY(0);

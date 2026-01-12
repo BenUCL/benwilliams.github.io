@@ -61,12 +61,8 @@
 
  <!-- Play/Pause Button -->
  <button class="hero-video-play-btn" id="heroVideoPlayBtn" aria-label="Play/Pause video">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="play-icon">
-   <path d="M8 5v14l11-7z"/>
-  </svg>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="pause-icon" style="display:none;">
-   <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
-  </svg>
+  <span class="play-triangle"></span>
+  <span class="pause-bars" style="display:none;"></span>
  </button>
 
  <!-- Main Content -->
@@ -82,7 +78,7 @@
       <!-- Current Work -->
       <div class="info-card info-card-large">
        <h2>Current work</h2>
-       <p>I strongly believe two things. Firstly, AI agents will one day run entire companies, operate the infrastructure of cities and lead scientific discovery. Second, digital twins and spatial intelligence will allows us to one day map and monitor the entire planet. However, whilst other industries move to rapidly adopt these technologies, the environmental sector will lag behind. My current research is focused on bringing the language capabilities of AI agents into digital twins of our natural world. I believe this tech holds the secret to optimised sustainable management of our biosphere..</p>
+       <p>I strongly believe two things. Firstly, AI agents will one day run entire companies, operate the infrastructure of cities and lead scientific discovery. Second, digital twins and spatial intelligence will allows us to one day map and monitor the entire planet. However, whilst other industries move to rapidly adopt these technologies, the environmental sector will lag behind. My current research is focused on bringing the language capabilities of AI agents into digital twins of our natural world. I believe this tech holds the secret to optimised sustainable management of our biosphere.</p>
       </div>
 
       <!-- TED Talk -->
@@ -170,16 +166,17 @@
   const heroVideo = document.querySelector('.hero-video');
   const playBtn = document.getElementById('heroVideoPlayBtn');
   const playIcon = playBtn.querySelector('.play-icon');
-  const pauseIcon = playBtn.querySelector('.pause-icon');
+  const playTriangle = playBtn.querySelector('.play-triangle');
+  const pauseBars = playBtn.querySelector('.pause-bars');
 
   // Update button icon based on video state
   function updateButtonIcon() {
    if (heroVideo.paused) {
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
+    playTriangle.style.display = 'block';
+    pauseBars.style.display = 'none';
    } else {
-    playIcon.style.display = 'none';
-    pauseIcon.style.display = 'block';
+    playTriangle.style.display = 'none';
+    pauseBars.style.display = 'inline-flex';
    }
   }
 
