@@ -147,11 +147,11 @@ img {
 @keyframes flipInOutReverse {
  0% {
   opacity: 0;
-  transform: rotateY(-90deg);
+  transform: rotateY(90deg);
  }
  40% {
   opacity: 0;
-  transform: rotateY(-90deg);
+  transform: rotateY(90deg);
  }
  50% {
   opacity: 1;
@@ -546,18 +546,30 @@ main {
  font-size: 0.95rem;
 }
 
-/* Four Column Grid */
-.four-col-grid {
- display: grid;
- gap: 1.5rem;
+/* Content Grid - Asymmetric 2x2 Layout */
+.content-grid {
+ display: flex;
+ flex-direction: column;
+ gap: 2rem;
  margin-bottom: 2rem;
 }
 
-/* Mobile: stack vertically with better spacing */
-@media (min-width: 1024px) {
- .four-col-grid {
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+.grid-row {
+ display: grid;
+ gap: 2rem;
+ grid-template-columns: 1fr;
+}
+
+/* Desktop: Asymmetric layout */
+@media (min-width: 768px) {
+ /* Top row: About 70% + TED Talk 30% */
+ .grid-row:first-child {
+  grid-template-columns: 70% 30%;
+ }
+ 
+ /* Bottom row: Links 30% + Current Work 70% */
+ .grid-row:last-child {
+  grid-template-columns: 30% 70%;
  }
 }
 
@@ -568,6 +580,71 @@ main {
  border: 1px solid #e5e7eb;
  display: flex;
  flex-direction: column;
+}
+
+.info-card-large {
+ background: #f9fafb;
+ padding: 1.5rem;
+ border-radius: 8px;
+ border: 1px solid #e5e7eb;
+}
+
+/* Links card - no background */
+.links-card {
+ background: transparent;
+ padding: 1.5rem;
+ border-radius: 8px;
+ border: none;
+ display: flex;
+ flex-direction: column;
+}
+
+.links-card h2 {
+ margin-bottom: 1rem;
+}
+
+.link-list {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+
+.link-list li {
+ margin-bottom: 0.75rem;
+ display: flex;
+ align-items: center;
+ gap: 0.5rem;
+}
+
+.link-emoji {
+ font-size: 1.2rem;
+ display: inline-block;
+ min-width: 1.5rem;
+}
+
+.link-list a {
+ color: #2563eb;
+ text-decoration: none;
+ font-weight: 500;
+}
+
+.link-list a:hover {
+ text-decoration: underline;
+}
+
+/* TEDx card - no background */
+.tedtalk-card {
+ background: transparent;
+ padding: 0;
+ border-radius: 8px;
+ border: none;
+ display: flex;
+ flex-direction: column;
+}
+
+.tedtalk-card h2 {
+ margin-bottom: 1rem;
+ font-size: 1.2rem;
 }
 
 /* Better mobile padding and spacing */
