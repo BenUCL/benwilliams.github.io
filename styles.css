@@ -32,12 +32,39 @@ img {
 /* Hero Section */
 .hero {
  min-height: 100vh;
+ position: relative;
+ overflow: hidden;
+}
+
+.hero-video {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ z-index: 0;
+}
+
+.hero-overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.4);
+ z-index: 1;
+ pointer-events: none;
+}
+
+.hero .container {
  display: flex;
  flex-direction: column;
  justify-content: center;
- padding: 2rem 0;
- background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+ min-height: 100vh;
  position: relative;
+ z-index: 2;
+ padding: 2rem 1.5rem;
 }
 
 .hero-grid {
@@ -86,12 +113,12 @@ img {
 .profile h1 {
  font-size: 2rem;
  margin-bottom: 0.5rem;
- color: #1a1a1a;
+ color: #fff;
 }
 
 .tagline {
  font-size: 1.1rem;
- color: #555;
+ color: #e5e7eb;
  margin-bottom: 1.5rem;
  line-height: 1.5;
 }
@@ -273,13 +300,44 @@ img {
 /* Scroll Cue */
 .scroll-cue {
  position: absolute;
- bottom: 2rem;
+ bottom: 20px;
  left: 50%;
  transform: translateX(-50%);
  text-align: center;
- color: #555;
+ color: #fff;
  font-size: 0.9rem;
  animation: bounce 2s infinite;
+}
+
+/* Video Play/Pause Button */
+.hero-video-play-btn {
+ position: fixed;
+ bottom: 2rem;
+ left: 2rem;
+ width: 50px;
+ height: 50px;
+ border-radius: 50%;
+ background: rgba(255, 255, 255, 0.2);
+ border: 2px solid rgba(255, 255, 255, 0.4);
+ color: #fff;
+ cursor: pointer;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: all 0.3s ease;
+ z-index: 9999;
+ margin: 0;
+ padding: 0;
+}
+
+.hero-video-play-btn:hover {
+ background: rgba(255, 255, 255, 0.3);
+ border-color: rgba(255, 255, 255, 0.6);
+}
+
+.hero-video-play-btn svg {
+ width: 24px;
+ height: 24px;
 }
 
 @keyframes bounce {
