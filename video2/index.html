@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Redwood Wildfire Aftermath Demo - Video walkthrough of the interactive 3D Gaussian splatting reconstruction">
+ <title>Redwood Demo Video | Ben Williams</title>
+ <link rel="stylesheet" href="../styles.css">
+ <style>
+  .video-page {
+   padding: 2rem 0;
+   background: #f9fafb;
+   min-height: 100vh;
+  }
+
+  .video-container {
+   max-width: 900px;
+   margin: 0 auto;
+   padding: 0 1.5rem;
+  }
+
+  .breadcrumb {
+   margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+   color: #2563eb;
+   text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+   text-decoration: underline;
+  }
+
+  .video-player {
+   background: #000;
+   border-radius: 12px;
+   overflow: hidden;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   margin-bottom: 2rem;
+  }
+
+  .video-player video {
+   width: 100%;
+   height: auto;
+   display: block;
+  }
+
+  .video-info {
+   background: #fff;
+   padding: 2rem;
+   border-radius: 12px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .video-info h1 {
+   font-size: 1.75rem;
+   margin-bottom: 1rem;
+   color: #1a1a1a;
+  }
+
+  .video-info p {
+   color: #555;
+   line-height: 1.8;
+   margin-bottom: 1rem;
+  }
+
+  .video-info a {
+   color: #2563eb;
+   text-decoration: none;
+  }
+
+  .video-info a:hover {
+   text-decoration: underline;
+  }
+
+  .back-link {
+   display: inline-block;
+   margin-top: 1rem;
+  }
+
+  .back-link a {
+   padding: 0.5rem 1rem;
+   background: #2563eb;
+   color: white;
+   border-radius: 6px;
+   text-decoration: none;
+   font-weight: 600;
+   transition: background 0.2s ease;
+   display: inline-block;
+   font-size: 0.9rem;
+  }
+
+  .back-link a:hover {
+   background: #1d4ed8;
+   text-decoration: none;
+  }
+ </style>
+</head>
+<body>
+
+ <div class="video-page">
+  <div class="video-container">
+   
+   <div class="video-player">
+    <video controls>
+     <source src="../assets/redwood_flythru_sml.mp4" type="video/mp4">
+     Your browser does not support the video tag. Please try a different browser.
+    </video>
+   </div>
+
+   <div class="video-info">
+    <h1>Redwood Wildfire Aftermath Flythrough</h1>
+    <p>
+     This is a video from the aftermath of wildfires in 2020 on two Sequoia trees in the Big Basin Redwoods State Park in California. The tallest of the two trees is at least 50m in height. This Gaussian splat was trained in minutes using 460 drone images.
+    </p>
+    <p>
+     For a fully interactive experience, <a href="../splats/demo2/">explore the 3D demo</a> on your desktop or laptop.
+    </p>
+    <p>
+     Data courtesy of: Auto Tree (2023) Photogrammetry. Distributed by Open Heritage 3D. https://doi.org/10.26301/c2ys-a430.
+    </p>
+    
+    <div class="back-link">
+     <a href="../">Back to home</a>
+    </div>
+   </div>
+
+  </div>
+ </div>
+
+ <footer style="background: #1a1a1a; color: #fff; padding: 2rem 0; text-align: center; margin-top: 4rem;">
+  <p style="margin: 0; font-size: 0.6rem;">&copy; 2026 Ben Williams. All rights reserved.</p>
+ </footer>
+
+</body>
+</html>

@@ -269,6 +269,7 @@ img {
 }
 
 .demo-card-link {
+ display: block;
  text-decoration: none;
  color: inherit;
 }
@@ -496,18 +497,20 @@ main {
  display: grid;
  gap: 2rem;
  margin-bottom: 2rem;
+ grid-template-columns: repeat(2, 1fr);
+ width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 599px) {
  .demos-grid {
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
  }
 }
 
-@media (min-width: 1024px) {
- .demos-grid {
-  grid-template-columns: repeat(3, 1fr);
- }
+.demo-card-link {
+ display: block;
+ text-decoration: none;
+ color: inherit;
 }
 
 .more-demos {
