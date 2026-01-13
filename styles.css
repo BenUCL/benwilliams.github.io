@@ -266,105 +266,16 @@ img {
 /* Demo Cards */
 .demo-hero-card {
  position: relative;
+ min-width: 400px;
 }
 
-.demo-card-link {
- display: block;
- text-decoration: none;
- color: inherit;
+.demo-hero-card .demo-info p {
+ white-space: nowrap;
+ margin: 0;
+ font-size: 0.85rem;
 }
 
-.demo-card {
- background: #fff;
- border-radius: 12px;
- overflow: hidden;
- box-shadow: 0 4px 20px rgba(0,0,0,0.1);
- transition: transform 0.3s ease, box-shadow 0.3s ease;
- position: relative;
- display: flex;
- flex-direction: column;
- height: 100%;
-}
-
-.demo-card:hover {
- transform: translateY(-8px);
- box-shadow: 0 8px 30px rgba(0,0,0,0.15);
-}
-
-.demo-poster {
- width: 100%;
- aspect-ratio: 16 / 9;
- object-fit: cover;
- background: #e5e7eb;
- flex: 1;
-}
-
-.play-overlay {
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 80px;
- display: flex;
- align-items: center;
- justify-content: center;
- background: transparent;
- opacity: 0;
- transition: opacity 0.3s ease;
-}
-
-.demo-card:hover .play-overlay {
- opacity: 1;
-}
-
-/* Demo Card Overlay Text */
-.demo-card-overlay {
- position: absolute;
- left: 0;
- right: 0;
- bottom: 80px; /* Above the demo-info section */
- padding: 1rem;
- text-align: center;
- pointer-events: none;
-}
-
-.demo-card-overlay span {
- background: rgba(0, 0, 0, 0.7);
- color: #fff;
- padding: 0.5rem 1rem;
- border-radius: 4px;
- font-size: 0.9rem;
- font-weight: 500;
-}
-
-.play-icon {
- font-size: 3rem;
- color: #fff;
- background: rgba(37,99,235,0.9);
- width: 80px;
- height: 80px;
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- padding-left: 8px;
-}
-
-.demo-info {
- padding: 1.5rem;
- text-align: center;
-}
-
-.demo-info h3 {
- font-size: 1.25rem;
- margin-bottom: 0.5rem;
- color: #1a1a1a;
-}
-
-.demo-info p {
- color: #666;
- font-size: 0.95rem;
-}
+/* All demo card styling is now in the Demos Section below */
 
 /* Scroll Cue */
 .scroll-cue {
@@ -492,18 +403,25 @@ main {
  font-size: 1.2rem;
 }
 
-/* Demos Grid */
-.demos-grid {
- display: grid;
+/* Demos Section */
+.demos-container {
+ display: flex;
  gap: 2rem;
  margin-bottom: 2rem;
- grid-template-columns: repeat(2, 1fr);
- width: 100%;
+ flex-wrap: wrap;
+ justify-content: center;
 }
 
-@media (max-width: 599px) {
- .demos-grid {
-  grid-template-columns: 1fr;
+.demo-card-wrapper {
+ flex: 1 1 calc(50% - 1rem);
+ min-width: 350px;
+ max-width: 600px;
+}
+
+@media (max-width: 768px) {
+ .demo-card-wrapper {
+  flex: 1 1 100%;
+  max-width: 100%;
  }
 }
 
@@ -511,22 +429,84 @@ main {
  display: block;
  text-decoration: none;
  color: inherit;
+ position: relative;
 }
 
-.more-demos {
+.demo-card {
+ background: #fff;
+ border-radius: 12px;
+ overflow: hidden;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+ transition: transform 0.3s ease, box-shadow 0.3s ease;
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ height: 100%;
+}
+
+.demo-card:hover {
+ transform: translateY(-8px);
+ box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.demo-poster {
+ width: 100%;
+ aspect-ratio: 16 / 9;
+ object-fit: cover;
+ background: #e5e7eb;
+}
+
+.play-overlay {
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: rgba(0, 0, 0, 0.3);
+ opacity: 0;
+ transition: opacity 0.3s ease;
+}
+
+.demo-card:hover .play-overlay {
+ opacity: 1;
+}
+
+.play-icon {
+ font-size: 3rem;
+ color: #fff;
+ background: rgba(37,99,235,0.9);
+ width: 80px;
+ height: 80px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ padding-left: 8px;
+}
+
+.demo-info {
+ padding: 1rem 1.25rem;
  text-align: center;
- margin-top: 2rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
 }
 
-.more-demos a {
- color: #2563eb;
- text-decoration: none;
- font-weight: 600;
- font-size: 1.1rem;
+.demo-info h3 {
+ font-size: 1.25rem;
+ margin-bottom: 0.5rem;
+ color: #1a1a1a;
 }
 
-.more-demos a:hover {
- text-decoration: underline;
+.demo-info p {
+ color: #666;
+ font-size: 0.9rem;
+ line-height: 1.4;
+ margin: 0;
+ display: inline;
 }
 
 /* Proof Grid */

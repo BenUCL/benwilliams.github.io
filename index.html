@@ -11,7 +11,7 @@
  <!-- Hero Section -->
  <header class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
-   <source src="assets/flythru1_compressed.mp4" type="video/mp4">
+   <source src="assets/flythru1_bg.mp4" type="video/mp4">
    Your browser does not support HTML5 video.
   </video>
   <div class="hero-overlay"></div>
@@ -45,18 +45,18 @@
 
    <!-- Right: Featured Demo Card -->
    <div class="demo-hero-card">
-    <a href="splats/demo1/" class="demo-card-link">
-     <div class="demo-card">
+    <div class="demo-card">
+     <a href="splats/demo1/" class="demo-card-link">
       <img src="assets/reef_screenshot.jpg" alt="Reef Patch Demo - Interactive 3D reconstruction" class="demo-poster">
       <div class="play-overlay">
        <span class="play-icon">▶</span>
       </div>
-      <div class="demo-info">
-       <h3>Interactive 3D twin: Click to try it out!</h3>
-       <p>Won't load on mobile? <a href="/video/" target="_blank" rel="noopener noreferrer">Watch the video instead</a>.</p>
-      </div>
+     </a>
+     <div class="demo-info">
+      <h3>Interactive 3D twin: Click to try it out!</h3>
+      <p>Won't load on mobile? <a href="/video/" target="_blank" rel="noopener noreferrer">Watch the video instead</a></p>
      </div>
-    </a>
+    </div>
    </div>
    </div>
   </div>
@@ -130,27 +130,41 @@
 
    <!-- Demos Section -->
    <section id="demos" class="content-section">
-    <h2>Demos</h2>
-    <p class="section-intro">Explore interactive 3D reconstructions built with Gaussian Splatting. More coming soon!</p>
-    <div class="demos-grid">
-     <a href="splats/demo1/" class="demo-card-link">
+    <h2>Interactive Demos</h2>
+    <p class="section-intro">Explore interactive 3D reconstructions built with Gaussian Splatting. Click to launch each demo.</p>
+    
+    <div class="demos-container">
+     <!-- Reef Demo -->
+     <div class="demo-card-wrapper">
       <div class="demo-card">
-       <img src="assets/reef_screenshot.jpg" alt="Coral Reef Restoration Demo - Interactive 3D reconstruction" class="demo-poster">
+       <a href="splats/demo1/" class="demo-card-link">
+        <img src="assets/reef_screenshot.jpg" alt="Coral Reef Restoration Demo - Interactive 3D reconstruction" class="demo-poster">
+        <div class="play-overlay">
+         <span class="play-icon">▶</span>
+        </div>
+       </a>
        <div class="demo-info">
-        <h3>Coral reef restoration 3D twin</h3>
-        <p>Won't load on mobile? <a href="/video/" target="_blank" rel="noopener noreferrer">Watch the video instead</a>.</p>
+        <h3>Coral Reef Restoration</h3>
+        <p>Won't load on mobile? <a href="/video/" target="_blank" rel="noopener noreferrer">Watch the video instead</a></p>
        </div>
       </div>
-     </a>
-     <a href="splats/demo2/" class="demo-card-link">
+     </div>
+
+     <!-- Redwood Demo -->
+     <div class="demo-card-wrapper">
       <div class="demo-card">
-       <img src="assets/redwood_poster.jpg" alt="Redwood Wildfire Aftermath Demo - Interactive 3D reconstruction" class="demo-poster">
+       <a href="splats/demo2/" class="demo-card-link">
+        <img src="assets/redwood_poster.jpg" alt="Redwood Wildfire Aftermath Demo - Interactive 3D reconstruction" class="demo-poster">
+        <div class="play-overlay">
+         <span class="play-icon">▶</span>
+        </div>
+       </a>
        <div class="demo-info">
-        <h3>Redwood wildfire aftermath 3D twin</h3>
-        <p>Won't load on mobile? <a href="/video2/" target="_blank" rel="noopener noreferrer">Watch the video instead</a>.</p>
+        <h3>Redwood Wildfire Aftermath</h3>
+        <p>Won't load on mobile? <a href="/video2/" target="_blank" rel="noopener noreferrer">Watch the video instead</a></p>
        </div>
       </div>
-     </a>
+     </div>
     </div>
    </section>
 
