@@ -115,13 +115,15 @@ img {
 }
 
 .headshot-1 {
- animation: flipInOut 4s infinite;
+ /* animation: flipInOut 4s infinite; */
 }
 
 .headshot-2 {
- animation: flipInOutReverse 4s infinite;
+ /* animation: flipInOutReverse 4s infinite; */
 }
 
+/* Fancy flip animations (commented out) */
+/*
 @keyframes flipInOut {
  0% {
   opacity: 1;
@@ -167,6 +169,7 @@ img {
   transform: rotateY(0deg);
  }
 }
+*/
 
 @media (min-width: 768px) {
  .headshot-container {
