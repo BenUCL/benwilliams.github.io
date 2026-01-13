@@ -33,7 +33,7 @@
   /* Floating controls */
   .viewer-controls {
    position: fixed;
-   bottom: 1rem;
+   top: 1rem;
    left: 1rem;
    display: flex;
    gap: 0.5rem;
@@ -64,15 +64,15 @@
   /* Info tooltip */
   .info-tooltip {
    position: absolute;
-   bottom: 85px;
+   top: 85px;
    left: 0;
    background: rgba(0, 0, 0, 0.85);
    color: white;
    padding: 2.25rem;
    border-radius: 6px;
-   font-size: 33px;
+   font-size: clamp(14px, 2.5vw, 28px);
    line-height: 1.6;
-   width: 840px;
+   width: clamp(600px, 70vw, 900px);
    opacity: 0;
    pointer-events: none;
    transition: opacity 0.2s ease;
@@ -83,10 +83,15 @@
    opacity: 1;
   }
   
+  .control-btn.active .info-tooltip {
+   opacity: 1;
+   pointer-events: auto;
+  }
+  
   @media (max-width: 640px) {
    .info-tooltip {
-    width: 660px;
-    font-size: 28px;
+    width: 90vw;
+    font-size: clamp(12px, 3vw, 18px);
    }
   }
   
@@ -186,6 +191,23 @@
    </div>
   </div>
  </div>
+
+ <script>
+  // Info button toggle functionality
+  const infoBtn = document.querySelector('.control-btn:has(.info-tooltip)');
+  
+  infoBtn.addEventListener('click', (e) => {
+   e.stopPropagation();
+   infoBtn.classList.toggle('active');
+  });
+  
+  // Close tooltip when clicking outside
+  document.addEventListener('click', (e) => {
+   if (!infoBtn.contains(e.target)) {
+    infoBtn.classList.remove('active');
+   }
+  });
+ </script>
 
 </body>
 </html>
