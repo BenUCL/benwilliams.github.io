@@ -62,8 +62,12 @@
   </div>
 
   <!-- Scroll Cue -->
-  <div class="scroll-cue">
-   <span>↓ See more</span>
+  <div class="scroll-cue" id="scrollCue">
+   <span>Scroll to see more</span>
+   <div class="scroll-chevrons">
+    <span>⌄</span>
+    <span>⌄</span>
+   </div>
   </div>
  </header>
 
@@ -192,51 +196,68 @@
  </footer>
 
  <script>
-  // Hero video play/pause button
-  const heroVideo = document.querySelector('.hero-video');
-  const playBtn = document.getElementById('heroVideoPlayBtn');
-  const playTriangle = playBtn.querySelector('.play-triangle');
-  const pauseBars = playBtn.querySelector('.pause-bars');
+  // Wait for DOM to be fully ready
+  document.addEventListener('DOMContentLoaded', () => {
+   // Hero video play/pause button
+   const heroVideo = document.querySelector('.hero-video');
+   const playBtn = document.getElementById('heroVideoPlayBtn');
+   const playTriangle = playBtn.querySelector('.play-triangle');
+   const pauseBars = playBtn.querySelector('.pause-bars');
 
-  // Ensure video plays on page load
-  window.addEventListener('load', () => {
-   heroVideo.play().catch(error => {
-    console.log('Autoplay prevented:', error);
+   // Ensure video plays on page load
+   window.addEventListener('load', () => {
+    heroVideo.play().catch(error => {
+     console.log('Autoplay prevented:', error);
+    });
    });
-  });
 
-  // Also try to play immediately
-  heroVideo.play().catch(error => {
-   console.log('Autoplay prevented on DOM ready:', error);
-  });
+   // Also try to play immediately
+   heroVideo.play().catch(error => {
+    console.log('Autoplay prevented on DOM ready:', error);
+   });
 
-  // Update button icon based on video state
-  function updateButtonIcon() {
-   if (heroVideo.paused) {
-    playTriangle.style.display = 'block';
-    pauseBars.style.display = 'none';
-   } else {
-    playTriangle.style.display = 'none';
-    pauseBars.style.display = 'inline-flex';
+   // Update button icon based on video state
+   function updateButtonIcon() {
+    if (heroVideo.paused) {
+     playTriangle.style.display = 'block';
+     pauseBars.style.display = 'none';
+    } else {
+     playTriangle.style.display = 'none';
+     pauseBars.style.display = 'inline-flex';
+    }
    }
-  }
 
-  // Handle button click
-  playBtn.addEventListener('click', () => {
-   if (heroVideo.paused) {
-    heroVideo.play();
-   } else {
-    heroVideo.pause();
-   }
+   // Handle button click
+   playBtn.addEventListener('click', () => {
+    if (heroVideo.paused) {
+     heroVideo.play();
+    } else {
+     heroVideo.pause();
+    }
+    updateButtonIcon();
+   });
+
+   // Update icon when video naturally pauses/plays
+   heroVideo.addEventListener('play', updateButtonIcon);
+   heroVideo.addEventListener('pause', updateButtonIcon);
+
+   // Set initial state
    updateButtonIcon();
+
+   // Scroll cue click handler
+   const scrollCue = document.getElementById('scrollCue');
+   if (scrollCue) {
+    scrollCue.addEventListener('click', () => {
+     window.scrollBy({
+      top: 400,
+      behavior: 'smooth'
+     });
+    });
+    scrollCue.style.cursor = 'pointer';
+   } else {
+    console.warn('Scroll cue element not found');
+   }
   });
-
-  // Update icon when video naturally pauses/plays
-  heroVideo.addEventListener('play', updateButtonIcon);
-  heroVideo.addEventListener('pause', updateButtonIcon);
-
-  // Set initial state
-  updateButtonIcon();
  </script>
 
 </body>
